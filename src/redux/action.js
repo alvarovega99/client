@@ -24,7 +24,7 @@ export const ELIMINAR_PRODUCTO = 'ELIMINAR_PRODUCTO';
 export function loginUser(payload) {
     return async (dispatch) => {
         try {
-            var json = await axios.post('http://35.190.137.182/api/usuarios/loginUser', payload);
+            var json = await axios.post('http://35.190.137.182/apiusuarios/loginUser', payload);
             return dispatch({
                 type: LOGIN_USER,
                 payload: json.data,
@@ -49,7 +49,7 @@ export function setMensaje() {
 }
 export function eliminarProductos(data) {
     return async function (dispatch) {
-        const res =  await axios.post('http://35.190.137.182/api/productos/delete', data);
+        const res =  await axios.post('http://35.190.137.182/apiproductos/delete', data);
         dispatch({
             type: ELIMINAR_PRODUCTO,
             payload: res.data
@@ -58,7 +58,7 @@ export function eliminarProductos(data) {
 }
 export function eliminarUbicacion(data) {
     return async function (dispatch) {
-        const res =  await axios.post('http://35.190.137.182/api/ubicaciones/delete', data);
+        const res =  await axios.post('http://35.190.137.182/apiubicaciones/delete', data);
         dispatch({
             type: ELIMINAR_UBICACION,
             payload: res.data
@@ -76,7 +76,7 @@ export function verificar(data) {
 }
 export function ingresarOperacion(data) {
     return async function (dispatch) {
-        const res =  await axios.post('http://35.190.137.182/api/operaciones', data);
+        const res =  await axios.post('http://35.190.137.182/apioperaciones', data);
         dispatch({
             type: POST_OPERACIONES_INGRESO,
             payload: res.data
@@ -86,7 +86,7 @@ export function ingresarOperacion(data) {
 
 export function buscarCodigo(data) {
     return async function (dispatch) {
-        const res =  await axios.get(`http://35.190.137.182/api/operaciones/${data.codigoCarga}`);
+        const res =  await axios.get(`http://35.190.137.182/apioperaciones/${data.codigoCarga}`);
         dispatch({
             type: GET_LOTE,
             payload: res.data
@@ -104,7 +104,7 @@ export function retirarLote(data) {
 
 export function getProductos() {
     return async function (dispatch) {
-        const res =  await axios.get('http://35.190.137.182/api/productos');
+        const res =  await axios.get('http://35.190.137.182/apiproductos');
         dispatch({
             type: GET_PRODUCTOS,
             payload: res.data
@@ -114,7 +114,7 @@ export function getProductos() {
 
 export function getUbicaciones() {
     return async function (dispatch) {
-        const res =  await axios.get('http://35.190.137.182/api/ubicaciones');
+        const res =  await axios.get('http://35.190.137.182/apiubicaciones');
         dispatch({
             type: GET_UBICACIONES,
             payload: res.data
@@ -124,7 +124,7 @@ export function getUbicaciones() {
 
 export function getOperaciones() {
     return async function (dispatch) {
-        const res =  await axios.get('http://35.190.137.182/api/operaciones');
+        const res =  await axios.get('http://35.190.137.182/apioperaciones');
         dispatch({
             type: GET_OPERACIONES,
             payload: res.data
@@ -134,7 +134,7 @@ export function getOperaciones() {
 
 export function getTotalGalleta() {
     return async function (dispatch) {
-        const res =  await axios.get('http://35.190.137.182/api/operaciones/galleta/total');
+        const res =  await axios.get('http://35.190.137.182/apioperaciones/galleta/total');
         dispatch({
             type: GET_TOTAL_GALLETA,
             payload: res.data
@@ -144,7 +144,7 @@ export function getTotalGalleta() {
 
 export function getTotalPolvo() {
     return async function (dispatch) {
-        const res =  await axios.get('http://35.190.137.182/api/operaciones/polvo/total');
+        const res =  await axios.get('http://35.190.137.182/apioperaciones/polvo/total');
         dispatch({
             type: GET_TOTAL_POLVO,
             payload: res.data
@@ -155,7 +155,7 @@ export function getTotalPolvo() {
 
 export function getTotalGalletaID(id) {
     return async function (dispatch) {
-        const res =  await axios.get(`http://35.190.137.182/api/operaciones/galleta/id/${id}`);
+        const res =  await axios.get(`http://35.190.137.182/apioperaciones/galleta/id/${id}`);
         dispatch({
             type: GET_TOTAL_GALLETA_ID,
             payload: res.data
@@ -166,7 +166,7 @@ export function getTotalGalletaID(id) {
 
 export function getTotalPolvoID(id) {
     return async function (dispatch) {
-        const res =  await axios.get(`http://35.190.137.182/api/operaciones/polvo/id/${id}`);
+        const res =  await axios.get(`http://35.190.137.182/apioperaciones/polvo/id/${id}`);
         dispatch({
             type: GET_TOTAL_POLVO_ID,
             payload: res.data
@@ -176,7 +176,7 @@ export function getTotalPolvoID(id) {
 
 export function postUbicaciones(name){
     return async function (dispatch) {
-        const res =  await axios.post('http://35.190.137.182/api/ubicaciones', name);
+        const res =  await axios.post('http://35.190.137.182/apiubicaciones', name);
         dispatch({
             type: POST_UBICACIONES,
             payload: res.data
@@ -185,7 +185,7 @@ export function postUbicaciones(name){
 }
 export function postProductos(name){
     return async function (dispatch) {
-        const res =  await axios.post('http://35.190.137.182/api/productos', name);
+        const res =  await axios.post('http://35.190.137.182/apiproductos', name);
         dispatch({
             type: POST_PRODUCTOS,
             payload: res.data
@@ -195,7 +195,7 @@ export function postProductos(name){
 
 export function postUsuario(name){
     return async function (dispatch) {
-        const res =  await axios.post('http://35.190.137.182/api/usuarios', name);
+        const res =  await axios.post('http://35.190.137.182/apiusuarios', name);
         dispatch({
             type: POST_USUARIOS,
             payload: res.data
@@ -205,7 +205,7 @@ export function postUsuario(name){
 
 export function postSalida(obj){
     return async function (dispatch) {
-        const res =  await axios.post('http://35.190.137.182/api/operaciones/status', obj);
+        const res =  await axios.post('http://35.190.137.182/apioperaciones/status', obj);
         dispatch({
             type: POST_SALIDA,
             payload: res.data
